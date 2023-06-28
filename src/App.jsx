@@ -5,12 +5,17 @@ function App() {
 
   const [field1, setField1] = useState("");
   const [field1Error, setField1Error] = useState("");
+  const [field2, setField2] = useState("");
+  const [field2Error, setField2Error] = useState("");
 
   const validateForm = () => {
     const field1Valid = field1.trim() !== "";
-    setField1Error(field1Valid ? "" : "This field is required.")
+    setField1Error(field1Valid ? "" : "This field is required. Enter the FirstName")
 
-    return field1Valid;
+    const field2Valid = field2.trim() !== "";
+    setField2Error(field2Valid ? "" : "This field is required. Enter the LastName")
+
+    return field1Valid && field2Valid
   }
 
   const handleSubmit = (e) => {
@@ -19,6 +24,8 @@ function App() {
     if (validateForm()) {
       setField1("");
       setField1Error("");
+      setField2("");
+      setField2Error("")
     }
   }
 
@@ -34,7 +41,8 @@ function App() {
            <input type="text" className='form-input' value={field1} onChange={(e) => setField1(e.target.value)} placeholder="Enter FirstName" required />
           
           <h5>Last name</h5>
-           <input type="text" className='form-input' placeholder="Enter LastName"/>
+          <span className="span">{field2Error}</span>
+           <input type="text" className='form-input' value={field2} onChange={(e) => setField2(e.target.value)} placeholder="Enter LastName" required/>
           
           <h5>Email</h5>
            <input type="email" className='form-input' placeholder="Enter Email" />
