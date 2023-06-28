@@ -45,10 +45,10 @@ function App() {
            <input type="text" className='form-input' value={field2} onChange={(e) => setField2(e.target.value)} placeholder="Enter LastName" required/>
           
           <h5>Email</h5>
-           <input type="email" className='form-input' placeholder="Enter Email" />
+           <input type="email" className='form-input' placeholder="Enter Email" required />
          
           <h5>Phone number</h5>
-           <input type="text" className='number-form' placeholder="+374(00)000000"/>
+           <input type="number" className='number-form' placeholder="+374(00)000000" required/>
 
           <p><button type="submit" className='btn' >Submit</button></p>
 
